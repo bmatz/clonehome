@@ -5,21 +5,30 @@ WSL Init Script
 
 ## SSH AGENT
 
+#### Installation
 Download latest version of `wsl-ssh-agent` from https://github.com/rupor-github/wsl-ssh-agent/releases.
 Unpack it to `c:\Program Files\wsl-ssh-agent`.
 
-Ensure running windows ssh-agent in PowerShell (as admin)
+#### OpenSSH Authentication Agent
+Ensure `ssh-agent` (OpenSSH Authentication Agent) is running on Windows by using PowerShell (as admin)
 ```PowerShell
 Set-Service -StartupType Automatic ssh-agent
 Start-Service ssh-agent
 ```
 
+#### Auto Startup
 ```
 WinKey + R
 shell:startup
 ```
 Add Shortcut to `c:\Program Files\wsl-ssh-agent\wsl-ssh-agent-gui.exe`
 Update Target in Shortcut by adding `-socket "%USERPROFILE%\ssh-agent.sock"`
+
+#### Finishig up in WSL
+Update your `export SSH_AUTH_SOCK=...` with the correct windows username. At least add your primary ssh key once
+```
+ssh-add ~/.ssh/id_rsa
+```
 
 ## Windows Terminal Settings
 
