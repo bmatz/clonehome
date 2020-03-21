@@ -1,7 +1,6 @@
 #!/bin/bash
 
 _echo () {
-    echo $1
     LEN=$(echo $1 | wc -c)
     ((LEN--))
     DECO=""
@@ -57,7 +56,7 @@ _echo "APT REPOS"
 sudo add-apt-repository -y ppa:vincent-c/ponysay
 _echo "APT Update"
 sudo apt -y update
-_echo "APT INSTALL"
+_echo "APT Install"
 sudo apt -y install \
 jq zip unzip git-secret neofetch \
 git-secret zsh curl nnn ponysay tmux \
