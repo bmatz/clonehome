@@ -5,6 +5,10 @@ WSL Init Script
 
 ## SSH AGENT
 
+Follow instructions at https://github.com/rupor-github/wsl-ssh-agent or
+
+### TLDR ;>
+
 #### Installation
 Download latest version of `wsl-ssh-agent` from https://github.com/rupor-github/wsl-ssh-agent/releases.
 Unpack it to `c:\Program Files\wsl-ssh-agent`.
@@ -25,7 +29,9 @@ Add Shortcut to `c:\Program Files\wsl-ssh-agent\wsl-ssh-agent-gui.exe`
 Update Target in Shortcut by adding `-socket "%USERPROFILE%\ssh-agent.sock"`
 
 #### Finishig up in WSL
-Update your `export SSH_AUTH_SOCK=...` with the correct windows username. At least add your primary ssh key once
+Update your `export SSH_AUTH_SOCK=...` with the correct windows username. The `SSH_AUTH_SOCK` environment variable should point at the `ssh-agent.sock` file created by `wsl-ssh-agent-gui.exe`.
+
+At least add your primary ssh key once.
 ```
 ssh-add ~/.ssh/id_rsa
 ```
