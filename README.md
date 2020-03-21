@@ -8,10 +8,10 @@ WSL Init Script
 Download latest version of `wsl-ssh-agent` from https://github.com/rupor-github/wsl-ssh-agent/releases.
 Unpack it to `c:\Program Files\wsl-ssh-agent`.
 
-Ensure running windows ssh-agent in PowerShell
+Ensure running windows ssh-agent in PowerShell (as admin)
 ```PowerShell
-Start-Service ssh-agent
 Set-Service -StartupType Automatic ssh-agent
+Start-Service ssh-agent
 ```
 
 ```
