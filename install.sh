@@ -221,6 +221,7 @@ git clone git@git.kerrigan.cloud:bmatz/clonehome.git && \
 pushd clonehome && \
 git secret reveal && \
 tar -xzf dotfiles.tar.gz && \
+chmod +x ./update-github.sh && \
 chmod +x ./sync-up.sh && \
 chmod +x ./sync-down.sh && \
 chmod +x ./configure-git.sh && \
