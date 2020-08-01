@@ -60,7 +60,12 @@ _echo "APT Install"
 sudo apt -y install \
 jq zip unzip git-secret neofetch \
 git-secret zsh curl nnn ponysay tmux \
-libncurses5-dev libncursesw5-dev
+libncurses5-dev libncursesw5-dev \
+curl gnupg2 dirmngr git-core zlib1g-dev \
+build-essential libssl-dev libreadline-dev \
+libyaml-dev libsqlite3-dev sqlite3 libxml2-dev \
+libxslt1-dev libcurl4-openssl-dev \
+software-properties-common libffi-dev
 
 _echo "PYTHON (PIP)"
 sudo apt -y install python3-dev python3-pip python3-setuptools
@@ -68,11 +73,10 @@ sudo apt -y install python3-dev python3-pip python3-setuptools
 _echo "thefuck & TLDR"
 sudo pip3 install thefuck tldr
 
-_echo "RUBY (GEM)"
-sudo apt -y install ruby-full
+#_echo "RUBY (GEM)"
+#sudo apt -y install ruby-full
 
-_echo "TMUXINATOR"
-sudo gem install tmuxinator
+
 
 
 # dir tree
@@ -85,9 +89,6 @@ mkdir -p ~/.bin/ch/zip && \
 mkdir -p ~/.ssh
 
 export PATH=$PATH:$HOME/.bin/ch/bin
-
-# tmuxinator completion script
-wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O ~/.bin/ch/scripts/tmuxinator.zsh
 
 # bitwarden cli
 _echo "BITWARDEN CLI"
@@ -282,3 +283,18 @@ chmod +x ./configure-git.sh && \
 ./configure-git.sh && \
 popd && \
 popd
+
+# ruby
+_echo "RUBY (for GEM via RBENV)"
+git clone https://github.com/rbenv/rbenv.git ~/.bin/.rbenv
+git clone https://github.com/rbenv/ruby-build.git ~/.bin/.rbenv/plugins/ruby-build
+rbenv install 2.7.1
+rbenv global 2.7.1
+
+_echo "TMUXINATOR"
+gem install tmuxinator
+
+# tmuxinator completion script
+wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O ~/.bin/ch/scripts/tmuxinator.zsh
+
+
